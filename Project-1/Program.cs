@@ -1,6 +1,18 @@
 ﻿using Models;
 
-User newUser = new User("Sammy", 25, "house566", "Employee");
+Console.WriteLine("Enter your username:");
+string a = Console.ReadLine();
+
+Console.WriteLine("Enter your User ID:");
+int b = Convert.ToInt32(Console.ReadLine()); 
+
+Console.WriteLine("Enter your password:");
+string c = Console.ReadLine();
+
+Console.WriteLine("Enter your role:");
+string d = Console.ReadLine();
+
+User newUser = new User(a, b, c, d);
 //newUser.UserName = "Billy";
 
 
