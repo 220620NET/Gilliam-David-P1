@@ -1,6 +1,7 @@
 ﻿using Models;
+using UI;
 
-Console.WriteLine("Enter your username:");
+/*Console.WriteLine("Enter your username:");
 string a = Console.ReadLine();
 
 Console.WriteLine("Enter your User ID:");
@@ -12,6 +13,7 @@ string c = Console.ReadLine();
 Console.WriteLine("Enter your role:");
 string d = Console.ReadLine();
 
+
 User newUser = new User(a, b, c, d);
 //newUser.UserName = "Billy";
 
@@ -19,4 +21,7 @@ User newUser = new User(a, b, c, d);
 Console.WriteLine("Username: " + newUser.UserName);
 Console.WriteLine("User ID: " + newUser.UserID);
 Console.WriteLine("Password: " + newUser.Password);
-Console.WriteLine("Role: " + newUser.Role);
+Console.WriteLine("Role: " + newUser.Role); */
+
+MainMenu main = new MainMenu();
+main.Start();

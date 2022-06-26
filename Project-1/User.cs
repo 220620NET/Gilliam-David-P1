@@ -9,6 +9,7 @@ public class User
         UserID = 0;
         Password = "";
         Role = "";
+        Console.WriteLine("You entered nothing");
     }
 
     //This is constructor overloading
@@ -18,6 +19,7 @@ public class User
         UserID = 0;
         Password = "";
         Role = "";
+        Console.WriteLine("You entered only 1 thing");
     }
 
     public User(string name, int ID)
@@ -26,6 +28,7 @@ public class User
         UserID = ID;
         Password = "";
         Role = "";
+        Console.WriteLine("You entered only 2 things");
     }
 
     public User(string name, int ID, string code)
@@ -34,6 +37,7 @@ public class User
         UserID = ID;
         Password = code;
         Role = "";
+        Console.WriteLine("You entered only 3 things");
     }
 
     public User(string name, int ID, string code, string employeeRole)
@@ -42,6 +46,7 @@ public class User
         UserID = ID;
         Password = code;
         Role = employeeRole;
+        Console.WriteLine("You entered all information");
     }
 
 
