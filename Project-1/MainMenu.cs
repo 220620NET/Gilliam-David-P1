@@ -2,7 +2,7 @@ namespace UI;
 
 public class MainMenu
 {
-    public void Start()
+     public void Start()
     {
         do
         {
