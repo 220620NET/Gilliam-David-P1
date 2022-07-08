@@ -4,17 +4,17 @@ public class Ticket
 {
    public Ticket() 
    {
-    author = "";
     ticketID = 0;
-    resolver = "";
+    author = 0;
+    resolver = 0;
     ticketDescription = "";
     ticketStatus = "";
     ticketAmount = 0.00; 
    }
    
-   public string author { get; set; }
    public int ticketID { get; set; }
-   public string resolver { get; set; } 
+   public int author { get; set; }
+   public int resolver { get; set; } 
    public string ticketDescription { get; set; }
    public string ticketStatus { get; set; }
    public double ticketAmount { get; set; }
