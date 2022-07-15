@@ -1,6 +1,7 @@
-﻿using Models;
-using UI;
-using CustomExceptions;
+﻿using System.Data.SqlClient;
+using Models;
+using UDAO;
+using System.Collections.Generic;
 
 /*Console.WriteLine("Enter your username:");
 string a = Console.ReadLine();
@@ -24,5 +25,16 @@ Console.WriteLine("User ID: " + newUser.UserID);
 Console.WriteLine("Password: " + newUser.Password);
 Console.WriteLine("Role: " + newUser.Role); */
 
-MainMenu main = new MainMenu();
-main.Start();
+
+UsersDAO useraccess = new UsersDAO();
+
+Users user_data = new Users("Anthony", "zionz4112", "Employee");
+
+useraccess.CreateUser(user_data);
+
+
+List<Users> users = useraccess.GetAllUsers();
+
+foreach (Users user in users){
+	Console.WriteLine(user);
+}

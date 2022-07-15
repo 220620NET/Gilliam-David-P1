@@ -1,60 +1,29 @@
 namespace Models;
 
-public class User
+public class Users
 {
-    //Empty Constructor
-    public User()
-    {
-        UserName = ""; 
-        UserID = 0;
-        Password = "";
-        Role = "";
-        Console.WriteLine("You entered nothing");
+    public int userID { get; set; }
+    public string userName { get; set; }
+    public string password { get; set; } 
+    public string role { get; set; }
+
+    public Users(string userName, string password, string role){
+        this.userName = userName;
+        this.password = password;
+        this.role = role;
     }
 
-    //This is constructor overloading
-    public User(string name)
-    {
-        UserName = name;
-        UserID = 0;
-        Password = "";
-        Role = "";
-        Console.WriteLine("You entered only 1 thing");
+    public Users(int userID, string userName, string password, string role){
+        this.userID = userID;
+        this.userName = userName;
+        this.password = password;
+        this.role = role;
     }
-
-    public User(string name, int ID)
-    {
-        UserName = name;
-        UserID = ID;
-        Password = "";
-        Role = "";
-        Console.WriteLine("You entered only 2 things");
+  
+    public override string ToString(){
+        return "User ID: " + this.userID +
+        ", Username: " + this.userName +
+        ", Password: " + this.password +
+        ", Role: " + this.role;
     }
-
-    public User(string name, int ID, string code)
-    {
-        UserName = name;
-        UserID = ID;
-        Password = code;
-        Role = "";
-        Console.WriteLine("You entered only 3 things");
-    }
-
-    public User(string name, int ID, string code, string employeeRole)
-    {
-        UserName = name;
-        UserID = ID;
-        Password = code;
-        Role = employeeRole;
-        Console.WriteLine("You entered all information");
-    }
-
-
-
-    //private fields/methods/etc is only accessible by its owner
-    
-     public string UserName { get; set; }
-     public int UserID { get; set; }
-     public string Password { get; set; } 
-     public string Role { get; set; }
 }
