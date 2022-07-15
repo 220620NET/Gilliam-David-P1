@@ -10,7 +10,7 @@ public class UsersDAO
 {
 	//the connection string from azure (class level variable)
     string connectionString = "Server=tcp:davidgserver.database.windows.net,1433;Initial Catalog=DavidG;Persist Security Info=False;User ID=sqluser;Password=p4ssw0rd!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";	
-	public List<Users> GetAllUsers(){
+	public List<Users> GetAllUsers() {
 		List<Users> users = new List<Users>();
 
         //this defines the sql statement we'd like to execute
@@ -41,7 +41,7 @@ public class UsersDAO
 
            return users;
 	}
-		public void CreateUser(Users user) {
+	public void CreateUser(Users user) {
 		//this defines the sql statement we'd like to execute
         string sql = "insert into ERS.users (username, password, userrole) values (@username, @password, @userrole);";
 
@@ -74,4 +74,66 @@ public class UsersDAO
 		}
 		
 	}
+
+	public Users GetByUsername(string username) {
+    	string sql = "select * from ERS.users where username = @name;";
+
+    	SqlConnection connection = new SqlConnection(connectionString);
+		//data type to reference the sql command you want to do to a specific connection
+		SqlCommand command = new SqlCommand(sql, connection);
+		command.Parameters.AddWithValue("@name", username); 
+             
+        Users userinfo = new Users(); 
+		try 
+		{
+		   //opening the connection to the database
+		   connection.Open();
+		   //storing the result set of a DQL statement into a variable
+		   SqlDataReader reader = command.ExecuteReader(); //I'll likely need to modify this for drop table
+		   while (reader.Read()) 
+		   {
+		   	  userinfo = new Users((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3]);
+		   }
+
+		   reader.Close();
+		   connection.Close();
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e.Message);
+		}
+
+         return userinfo; 
+    }
+
+    public Users GetByID(int ID) {
+    	string sql = "select * from ERS.users where userID = @ID;";
+
+    	SqlConnection connection = new SqlConnection(connectionString);
+		//data type to reference the sql command you want to do to a specific connection
+		SqlCommand command = new SqlCommand(sql, connection);
+		command.Parameters.AddWithValue("@ID", ID); 
+             
+        Users userinfo = new Users(); 
+		try 
+		{
+		   //opening the connection to the database
+		   connection.Open();
+		   //storing the result set of a DQL statement into a variable
+		   SqlDataReader reader = command.ExecuteReader(); //I'll likely need to modify this for drop table
+		   while (reader.Read()) 
+		   {
+		   	  userinfo = new Users((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3]);
+		   }
+
+		   reader.Close();
+		   connection.Close();
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e.Message);
+		}
+
+         return userinfo; 
+    }
 }

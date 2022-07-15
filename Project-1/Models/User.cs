@@ -7,6 +7,10 @@ public class Users
     public string password { get; set; } 
     public string role { get; set; }
 
+    public Users(){
+   
+    }
+
     public Users(string userName, string password, string role){
         this.userName = userName;
         this.password = password;
@@ -19,7 +23,7 @@ public class Users
         this.password = password;
         this.role = role;
     }
-  
+
     public override string ToString(){
         return "User ID: " + this.userID +
         ", Username: " + this.userName +

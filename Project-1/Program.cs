@@ -28,7 +28,7 @@ Console.WriteLine("Role: " + newUser.Role); */
 
 UsersDAO useraccess = new UsersDAO();
 
-Users user_data = new Users("Anthony", "zionz4112", "Employee");
+/*Users user_data = new Users("Anthony", "zionz4112", "Employee");
 
 useraccess.CreateUser(user_data);
 
@@ -38,3 +38,10 @@ List<Users> users = useraccess.GetAllUsers();
 foreach (Users user in users){
 	Console.WriteLine(user);
 }
+
+Users userinfo = useraccess.GetByUsername("Susan");
+Console.WriteLine(userinfo);*/
+
+Users userinfo = useraccess.GetByID(5);
+Console.WriteLine(userinfo);
+
