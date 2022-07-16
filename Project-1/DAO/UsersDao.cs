@@ -2,7 +2,7 @@ using System.Data.SqlClient;
 using Models;
 using System.Collections.Generic;
 
-namespace UDAO;
+namespace DAO;
 
 //The purpose of this layer is to execute the SQL statements to the database
 
@@ -106,7 +106,7 @@ public class UsersDAO
          return userinfo; 
     }
 
-    public Users GetByID(int ID) {
+    public Users GetByUserID(int ID) {
     	string sql = "select * from ERS.users where userID = @ID;";
 
     	SqlConnection connection = new SqlConnection(connectionString);

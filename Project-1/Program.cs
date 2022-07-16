@@ -1,47 +1,46 @@
 ﻿using System.Data.SqlClient;
 using Models;
-using UDAO;
+using DAO;
 using System.Collections.Generic;
 
-/*Console.WriteLine("Enter your username:");
-string a = Console.ReadLine();
-
-Console.WriteLine("Enter your User ID:");
-int b = Convert.ToInt32(Console.ReadLine()); 
-
-Console.WriteLine("Enter your password:");
-string c = Console.ReadLine();
-
-Console.WriteLine("Enter your role:");
-string d = Console.ReadLine();
-
-
-User newUser = new User(a, b, c, d);
-//newUser.UserName = "Billy";
-
-
-Console.WriteLine("Username: " + newUser.UserName);
-Console.WriteLine("User ID: " + newUser.UserID);
-Console.WriteLine("Password: " + newUser.Password);
-Console.WriteLine("Role: " + newUser.Role); */
-
-
 UsersDAO useraccess = new UsersDAO();
+TicketsDAO ticketaccess = new TicketsDAO();
 
 /*Users user_data = new Users("Anthony", "zionz4112", "Employee");
 
 useraccess.CreateUser(user_data);
 
+Users userinfo = useraccess.GetByUsername("Susan");
+Console.WriteLine(userinfo);
 
-List<Users> users = useraccess.GetAllUsers();
+/*List<Users> users = useraccess.GetAllUsers();
 
 foreach (Users user in users){
 	Console.WriteLine(user);
+}*/
+
+//Tickets ticket_data = new Tickets(5, "Upcoming leadership conference", 210.33);
+
+//ticketaccess.CreateTicket(ticket_data);
+
+/*ticketaccess.UpdateTicket(4, "Denied", 4);
+
+List<Tickets> tickets = ticketaccess.GetAllTickets();
+
+foreach (Tickets ticket in tickets){
+	Console.WriteLine(ticket);
+}*/
+
+/*Users userinfo = useraccess.GetByUserID(2);
+Console.WriteLine(userinfo);
+
+Tickets ticketinfo = ticketaccess.GetByTicketID(2);
+Console.WriteLine(ticketinfo);*/
+List<Tickets> ticketinfo = ticketaccess.GetByTicketStatus("Denied");
+foreach (Tickets ticket in ticketinfo){
+	Console.WriteLine(ticket);
 }
 
-Users userinfo = useraccess.GetByUsername("Susan");
-Console.WriteLine(userinfo);*/
 
-Users userinfo = useraccess.GetByID(5);
-Console.WriteLine(userinfo);
+
 
