@@ -1,30 +1,41 @@
 namespace CustomExceptions;
 
-public class ResourceNotFoundException : Exception 
+
+public class ResourceNotFound : Exception
 {
-    public ResourceNotFoundException() { }
-    public ResourceNotFoundException(string message) : base(message) { }
-    public ResourceNotFoundException(string message, System.Exception inner) : base(message, inner) { }
-    protected ResourceNotFoundException(
+    public ResourceNotFound() { }
+    public ResourceNotFound(string message) : base(message) { }
+    public ResourceNotFound(string message, System.Exception inner) : base(message, inner) { }
+    protected ResourceNotFound(
         System.Runtime.Serialization.SerializationInfo info,
         System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
 }
 
-public class UsernameNotAvailableException : Exception
+public class UsernameNotAvailable : Exception
 {
-    public UsernameNotAvailableException() { }
-    public UsernameNotAvailableException(string message) : base(message) { }
-    public UsernameNotAvailableException(string message, System.Exception inner) : base(message, inner) { }
-    protected UsernameNotAvailableException(
+    public UsernameNotAvailable() { }
+    public UsernameNotAvailable(string message) : base(message) { }
+    public UsernameNotAvailable(string message, System.Exception inner) : base(message, inner) { }
+    protected UsernameNotAvailable(
         System.Runtime.Serialization.SerializationInfo info,
         System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
 }
-public class InvalidCredentialsException : Exception
+public class InvalidCredentials : Exception
 {
-    public InvalidCredentialsException() { }
-    public InvalidCredentialsException(string message) : base(message) { }
-    public InvalidCredentialsException(string message, System.Exception inner) : base(message, inner) { }
-    protected InvalidCredentialsException(
+    public InvalidCredentials() { }
+    public InvalidCredentials(string message) : base(message) { }
+    public InvalidCredentials(string message, System.Exception inner) : base(message, inner) { }
+    protected InvalidCredentials(
+        System.Runtime.Serialization.SerializationInfo info,
+        System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+}
+
+public class UnsuccessfulRegistration : Exception
+{
+    public UnsuccessfulRegistration() { }
+    public UnsuccessfulRegistration(string message) : base(message) { }
+    public UnsuccessfulRegistration(string message, System.Exception inner) : base(message, inner) { }
+    protected UnsuccessfulRegistration(
         System.Runtime.Serialization.SerializationInfo info,
         System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
 }

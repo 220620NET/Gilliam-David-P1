@@ -1,6 +1,7 @@
 using System.Data.SqlClient;
 using Models;
 using System.Collections.Generic;
+using CustomExceptions;
 
 namespace DAO;
 
@@ -41,10 +42,10 @@ public class UsersDAO
 
            return users;
 	}
-	public void CreateUser(Users user) {
+	public Users CreateUser(Users user) {
 		//this defines the sql statement we'd like to execute
         string sql = "insert into ERS.users (username, password, userrole) values (@username, @password, @userrole);";
-
+ 
 		//data type for an active connection
 		SqlConnection connection = new SqlConnection(connectionString);
 		//data type to reference the sql command you want to do to a specific connection
@@ -58,20 +59,18 @@ public class UsersDAO
 		   connection.Open();
 		   //this is for DML statements
 		   int rowsAffected = command.ExecuteNonQuery();
-		  
+		   connection.Close();
 		   if (rowsAffected != 0)
 		   {
-		   	Console.WriteLine("You registered as: " + user.userName);
+		   	return user;
 		   }
-		 
-		   connection.Close();
-
-		   
+		   else { throw new UnsuccessfulRegistration(); }
 		}
 		catch (Exception e)
-		{
-			Console.WriteLine(e.Message);
-		}
+        {
+           Console.WriteLine(e.Message);
+           throw new UnsuccessfulRegistration();
+        }
 		
 	}
 

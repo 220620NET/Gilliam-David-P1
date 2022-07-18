@@ -58,13 +58,11 @@ public class TicketsDAO
 		   connection.Open();
 		   //this is for DML statements
 		   int rowsAffected = command.ExecuteNonQuery();
-		  
+		   connection.Close();
 		   if (rowsAffected != 0)
 		   {
 		   	Console.WriteLine("This ticket was submitted by user #" + ticket.authorID);
 		   }
-		 
-		   connection.Close();
 		}
 		catch (Exception e)
 		{
@@ -89,13 +87,11 @@ public class TicketsDAO
 		   connection.Open();
 		   //this is for DML statements
 		   int rowsAffected = command.ExecuteNonQuery();
-		  
+		   connection.Close();
 		   if (rowsAffected != 0)
 		   {
 		   	Console.WriteLine("Ticket ID#" + ticketID + " has been updated by user #" + resolverID);
-		   }
-		 
-		   connection.Close();		   
+		   }	   
 		}
 		catch (Exception e)
 		{
