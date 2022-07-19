@@ -1,6 +1,7 @@
 using System.Data.SqlClient;
 using Models;
 using System.Collections.Generic;
+using CustomExceptions;
 
 namespace DAO;
 
@@ -41,7 +42,7 @@ public class TicketsDAO
 
            return tickets;
 	}
-	public void CreateTicket(Tickets ticket) {
+	public Tickets CreateTicket(Tickets ticket) {
 		//this defines the sql statement we'd like to execute
         string sql = "insert into ERS.tickets (author_ID, ticketDescription, ticketAmount) values (@author_ID, @ticketDescription, @ticketAmount);";
 
@@ -61,12 +62,14 @@ public class TicketsDAO
 		   connection.Close();
 		   if (rowsAffected != 0)
 		   {
-		   	Console.WriteLine("This ticket was submitted by user #" + ticket.authorID);
+		    return ticket;
 		   }
+		   else { throw new UnsuccessfulTicketSubmission(); }
 		}
 		catch (Exception e)
 		{
 			Console.WriteLine(e.Message);
+			throw new UnsuccessfulTicketSubmission();
 		}	
 	}
 	public void UpdateTicket(int ticketID, string ticketStatus, int resolverID) {

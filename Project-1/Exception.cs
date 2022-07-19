@@ -39,3 +39,13 @@ public class UnsuccessfulRegistration : Exception
         System.Runtime.Serialization.SerializationInfo info,
         System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
 }
+
+public class UnsuccessfulTicketSubmission : Exception
+{
+    public UnsuccessfulTicketSubmission() { }
+    public UnsuccessfulTicketSubmission(string message) : base(message) { }
+    public UnsuccessfulTicketSubmission(string message, System.Exception inner) : base(message, inner) { }
+    protected UnsuccessfulTicketSubmission(
+        System.Runtime.Serialization.SerializationInfo info,
+        System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+}
