@@ -32,7 +32,7 @@ public class TicketController
         List<Tickets> ticketinfo = _service.GetByAuthorID(ID);
         if (ticketinfo.Count < 1) 
         {
-            return Results.BadRequest("That user does not have any tickets."); //this isn't getting returned
+            return Results.BadRequest("That user does not have any tickets."); //fixed
         }
         try 
         {  
