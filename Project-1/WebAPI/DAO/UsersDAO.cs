@@ -82,7 +82,7 @@ public class UsersDAO
 		SqlCommand command = new SqlCommand(sql, connection);
 		command.Parameters.AddWithValue("@name", username); 
              
-        Users userinfo = new Users(); 
+      Users userinfo = new Users(); 
 		try 
 		{
 		   //opening the connection to the database
