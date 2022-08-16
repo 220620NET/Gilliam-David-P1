@@ -1,3 +1,4 @@
+using Sensitive;
 using System.Data.SqlClient;
 using Models;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace DAO;
 public class TicketsDAO 
 {
 	//the connection string from azure (class level variable)
-    string connectionString = "Server=tcp:davidgserver.database.windows.net,1433;Initial Catalog=DavidG;Persist Security Info=False;User ID=sqluser;Password=p4ssw0rd!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";	
+    string connectionString = SensitiveVariables.dbConnString;	
 	public List<Tickets> GetAllTickets() {
 		List<Tickets> tickets = new List<Tickets>();
 
